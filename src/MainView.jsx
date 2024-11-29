@@ -1,17 +1,35 @@
-import { View, StyleSheet } from 'react-native';
-import Msg from './Msg';
+import { View, ScrollView, Text } from 'react-native';
+import Header from './header/Header';
+import Consulta from './header/components/Consulta';
+import Login from './tela_de_login/Login';
 
-const MainView = ()=>{
+const MainView = ({route})=>{
+    const { username } = route.params;
+
     return (
-        <View style={style}>
-            <Msg/>
+        <View>
+            <Header username={username}/>
+            <ScrollView>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+                <Consulta/>
+            </ScrollView>
         </View>
-    )
+    );
 };
 
-const style = StyleSheet.create({
-    flex: 1,
-    backgroundColor: "rgb(233, 233, 233)",
-});
+
 
 export default MainView;
