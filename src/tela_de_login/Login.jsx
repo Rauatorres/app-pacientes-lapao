@@ -6,7 +6,7 @@ const Login = ({navigation})=>{
     const [password, setPassword] = useState("");
 
     async function logar(){
-        const server = 'http://192.168.0.115:3000';
+        const server = 'http://192.168.0.8:3000';
 
         try{
             const response = await fetch(`${server}/login`, {
@@ -26,6 +26,7 @@ const Login = ({navigation})=>{
                 const { success, data, msg } = await response.json();
                 if(success){
                     navigation.navigate('main', data);
+                    // console.log(data);
                 }else{
                     Alert.alert(`Não foi possível realizar o login - ${msg}`);
                     

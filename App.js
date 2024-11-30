@@ -9,13 +9,12 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
       <NavigationContainer>
-    {/* <View style={styles}>
-      <StatusBar/> */}
         <Stack.Navigator initialRouteName='login'>
           <Stack.Screen name='login' component={Login}/>
-          <Stack.Screen name='main' component={MainView}/>
+          <Stack.Screen name='main' component={MainView} options={
+            {headerBackVisible: false}
+          }/>
         </Stack.Navigator>
-    {/* </View> */}
       </NavigationContainer>
   );
 }
