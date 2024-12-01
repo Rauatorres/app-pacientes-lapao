@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 const Consulta = (props)=>{
     // console.log(props);
@@ -45,9 +45,13 @@ const Consulta = (props)=>{
 
     function mostrarConsulta(){
             return (
-                <View>
-                    <Text>{nome}</Text>
-                    <Text>{props.data} - {props.hora}</Text>
+                <View style={styles.consultaView}>
+                    <Text style={styles.nomeText}>{nome}</Text>
+                    <View style={styles.dataView}>
+                        <Text style={styles.dataTituloText}>Data</Text>
+                        <Text style={styles.dataConteudoText}>{props.data} - {props.hora}</Text>
+                        {/* <Button title='teste' ></Button> */}
+                    </View>
                 </View>
             );
     }
@@ -59,5 +63,34 @@ const Consulta = (props)=>{
     );
 
 };
+
+const styles = StyleSheet.create({
+    consultaView: {
+        margin: 10,
+        backgroundColor: 'white',
+        padding: 5,
+        borderRadius: 10,
+        boxShadow: "2x 2px 10px 3px rgba(0, 0, 0, 0.3)"
+    },
+    nomeText: {
+        margin: 7,
+        fontWeight: 700
+    },
+    dataView: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 7,
+    },
+    dataTituloText:  {
+        // backgroundColor: 'blue',
+        // flex: 1,
+    },
+    dataConteudoText: {
+        flex: 0.9,
+        // backgroundColor: 'orange',
+        color: 'rgb(120, 120, 120)',
+    }
+});
 
 export default Consulta;

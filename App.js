@@ -12,7 +12,10 @@ export default function App() {
         <Stack.Navigator initialRouteName='login'>
           <Stack.Screen name='login' component={Login}/>
           <Stack.Screen name='main' component={MainView} options={
-            {headerBackVisible: false}
+            {
+              headerBackVisible: false,
+              title: 'Consultas',
+            }
           }/>
         </Stack.Navigator>
       </NavigationContainer>

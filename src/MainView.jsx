@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, FlatList, ScrollView, Text, Alert } from 'react-native';
+import { View, FlatList, ScrollView, Text, Alert, StyleSheet } from 'react-native';
 import Header from './header/Header';
 import Consulta from './header/components/Consulta';
 import Login from './tela_de_login/Login';
@@ -41,20 +41,30 @@ const MainView = ({route})=>{
     }, []);
 
     return (
-        <View>
+        < >
             <Header username={username}/>
             <FlatList 
+                style={styles.consultasList} 
                 data={consultas}
                 renderItem={({item}) => 
-                    <View>
-                        <Consulta id={item.id} paciente={item.idpaciente} medico={item.idmedico} data={item.data_fim} hora={item.hora} tipo={tipo}/>
-                    </View>
+                    <Consulta 
+                        id={item.id} 
+                        paciente={item.idpaciente} 
+                        medico={item.idmedico} 
+                        data={item.data_fim} 
+                        hora={item.hora} 
+                        tipo={tipo}
+                    />
                 }
             />
-        </View>
+        </>
     );
 };
 
-
+const styles = StyleSheet.create({
+    consultasList: {
+        padding: 20,
+    }
+});
 
 export default MainView;
